@@ -1,0 +1,421 @@
+body {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.heart-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heart {
+    width: 200px;
+    height: 200px;
+    fill: none;
+    stroke: rgb(139, 69, 69);
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 20s forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.flower {
+    position: relative;
+    transform: scaleY(-1); 
+    z-index: 1;/* This will flip the flower vertically */
+}
+
+.stem {
+    width: 6px;
+    height: 200px;
+    background-color: #0a6e4d;  
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.leaf-1,
+.leaf-2,
+.leaf-3,
+.leaf-4 {
+    width: 50px;
+    height: 50px;
+    border-radius: 0 30px; /* Изменены значения для каждого листочка */
+    background-color: #205320; /* Изменены цвета */
+   /* position: absolute;*/
+    bottom: 20px; /* Изменено значение для каждого листочка */
+    left: 50%;
+}
+    
+.leaf-1 {
+    transform: translateX(-50%) rotate(80deg);
+}
+
+.leaf-2 {
+    border-radius: 0 35px;
+    background-color: #2c6a2c;
+    bottom: 40px; /* Изменено значение */
+    transform: translateX(-45%) rotate(60deg);
+}
+
+.leaf-3 {
+    border-radius: 0 40px;
+    background-color: #205720;
+    bottom: 60px; /* Изменено значение */
+    transform: translateX(-30%) rotate(45deg);
+}
+
+.leaf-4 {
+    border-radius: 0 45px;
+    background-color: #337533;
+    bottom: 80px; /* Изменено значение */
+    right: 100px;
+    transform: translateX(-15%) rotate(70deg);
+}
+
+
+
+.petals {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.petal {
+    width: 60px;
+    height: 120px;
+    background-color: #8b5a6e;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.petal:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.petal:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.petal:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.petal:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.center {
+    width: 30px;
+    height: 30px;
+    background-color: #cdd84c;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: sparkle 1s  infinite;
+  }
+  
+  .center::before,
+  .center::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #d3ec59;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  .center::before {
+    width: 10px;
+    height: 10px;
+    animation: sparkle-before 7s     infinite;
+  }
+  
+  .center::after {
+    width: 5px;
+    height: 5px;
+    animation: sparkle-after 7s  infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      box-shadow: 0 0 10px #ffffff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 90px #fff, 0 0 100px #fff;
+    }
+    50% {
+      box-shadow: 0 0 10px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 90px #fff, 0 0 100px #fff, 0 0 110px #fff;
+    }
+  }
+  
+  
+ 
+  
+  .background-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.star {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.star::before,
+.star::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.star::before {
+    left: -10px;
+    top: -5px;
+    animation-delay: 0.2s;
+}
+
+.star::after {
+    left: 10px;
+    top: -10px;
+    animation-delay: 0.4s;
+}
+
+.connecting-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+  @keyframes glow {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .grass {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, #104110);
+    overflow: hidden;
+    z-index: 2; /* Ограничиваем видимую часть травы */
+}
+
+.grass:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Располагаем треугольник по середине горизонтально */
+    transform: translateX(-50%); /* Сдвигаем треугольник на половину его ширины влево */
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent; /* Ширина и высота треугольника */
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #104110; /* Высота треугольника */
+}
+
+  
+.blade {
+    position: absolute;
+    bottom: 40px;
+    width: 10px;
+    height: 190px;
+    background-color: #134113;
+    transform-origin: bottom;
+    border-radius: 50% 50% 0 0  ; 
+    z-index: 2;/* Добавляем скругление только для верхней части травинки */
+}
+.fancy-text {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 80%; /* Расстояние от верха */
+    left: 85%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .second {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 65%; /* Расстояние от верха */
+    left: 50%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .third {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 0.1%; /* Расстояние от верха */
+    left: 14%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .forth {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 21%; /* Расстояние от верха */
+    left: 12%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .fifth {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 92%; /* Расстояние от верха */
+    left: 21%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .ae {
+    font-family: 'Courier New', Courier, monospace; /* Выбираем шрифт */
+    font-size: 18px; /* Выбираем размер шрифта */
+    color: #f19941; /* Выбираем цвет шрифта */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляем тень для текста */
+    position: absolute; /* Фиксируем текст в определенном месте */
+    top: 10%; /* Расстояние от верха */
+    left: 50%; /* Расстояние от левого края */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    z-index: 3; /* Выбираем уровень текста относительно других элементов */
+  }
+  .image-container {
+    position: absolute  ; /* Позволяет точно задать положение изображения на странице */
+    top: 200px; /* Расположение сверху */
+    left: 190px; /* Расположение слева */
+    /* Дополнительные стили, такие как отступы, размеры, тени и т.д., могут быть добавлены по вашему усмотрению */
+}
+.image-container1 {
+    position: absolute  ; /* Позволяет точно задать положение изображения на странице */
+    top: 200px; /* Расположение сверху */
+    left: 50px; /* Расположение слева */
+    /* Дополнительные стили, такие как отступы, размеры, тени и т.д., могут быть добавлены по вашему усмотрению */
+}
+.flower-1 {
+    transform: scaleY(-1);
+    top: 100px; /* Сдвиг вниз */
+    left: -550px;
+}
+
+.flower-2 {
+    transform: scaleY(-1) rotate(-40deg);
+    transform-origin: 50% 20px;
+    left: -400px; 
+    top: 100px; /* Сдвиг вниз *//* 50% is the horizontal center, 200px is the vertical center of the second flower */
+}
+
+
+.flower-3 {
+    transform: scaleY(-1) rotate(40deg);
+    transform-origin: 50% 20px;
+    left: -700px; 
+    top: 100px; /* Сдвиг вниз *//* 50% is the horizontal center, 200px is the vertical center of the second flower */
+}
+
+.audio-player-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #082e10; /* Brown */
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Courier New', Courier, monospace;
+}
+.audio-player-container input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background-color: #f19941; /* Подходящий цвет для ползунка */
+    border-radius: 5px;
+    outline: none;
+    margin-top: 5px;
+}
+
+.audio-player-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #fff; /* Цвет самого ползунка */
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px; /* Чтобы ползунок был посередине вертикально */
+    box-shadow: 0 0 5px rgba(202, 26, 26, 0.5); /* Тень для добавления объема */
+}
+
+.audio-player-controls {
+    display: flex;
+    align-items: center;
+}
+
+.audio-player-controls button {
+    background-color: #271406   ; /* Dark Goldenrod */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+.audio-player-time {
+    color: #fff;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
